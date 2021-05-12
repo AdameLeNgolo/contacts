@@ -14,6 +14,8 @@
         {{ $contact->telephone }}<br>
         {{ $contact->adresse }}<br>
         {{ $contact->email }}<br>
+
+        <a href="{{ route('contact.edit',$contact->id) }}">Modifier</a>
         <hr>
     @endforeach
 </div>

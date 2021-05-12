@@ -68,7 +68,9 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        // dd($contact);
+
+        return view('contact.edit',compact('contact'));
     }
 
     /**
@@ -80,7 +82,13 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $contact->nom = $request->nom;
+        $contact->prenom = $request->prenom;
+        $contact->telephone = $request->telephone;
+        $contact->email = $request->email;
+        $contact->adresse = $request->adresse;
+        $contact->save();
+        return back();
     }
 
     /**
