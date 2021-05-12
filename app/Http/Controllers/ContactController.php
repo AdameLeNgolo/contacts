@@ -24,7 +24,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contact.add');
     }
 
     /**
@@ -35,7 +35,18 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact = Contact::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+            'adresse' => $request->adresse,
+        ]);
+        
+        // dd($contact);
+        // $contact->save();
+
+        return back();
     }
 
     /**

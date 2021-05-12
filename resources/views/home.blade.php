@@ -1,16 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ config('app.name') }}</title>
-</head>
-<body>
-    <a href="/">Home</a>
+@extends('app')
+@section('content')
+<a href="/">Home</a> / 
+<a href="#">List contact</a>
 
-    <div>
-        <a href="#">Add new contact</a>
-    </div>
-</body>
-</html>
+<div>
+    <a href="{{ route('contact.create') }}">Add new contact</a>
+</div>
+
+<div class="border">
+    @foreach ($contacts as $contact)
+        {{ $contact->nom }} 
+        {{ $contact->prenom }}<br>
+        {{ $contact->telephone }}<br>
+        {{ $contact->adresse }}<br>
+        {{ $contact->email }}<br>
+        <hr>
+    @endforeach
+</div>
+@endsection

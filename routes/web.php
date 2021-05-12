@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $contacts = Contact::all();
+    return view('home',compact('contacts'));
 });
+
+Route::resource('contact', ContactController::class);
