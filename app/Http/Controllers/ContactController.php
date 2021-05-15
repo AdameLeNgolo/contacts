@@ -99,6 +99,6 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        dd($contact);
     }
 }

@@ -3,7 +3,8 @@
 @section('content')
     <form action="{{ route('contact.update',$contact->id) }}" method="POST">
         @csrf
-        {{ method_field('PUT') }}
+        {{-- {{ method_field('PUT') }} --}}
+        @method('PUT')
         
         <input type="text" class="form-control" placeholder="Votre prenom ici" name="prenom" value="{{ $contact->prenom }}">
         <input type="text" class="form-control" placeholder="Votre nom ici" name="nom" value="{{ $contact->nom }}">
